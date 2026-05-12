@@ -20,6 +20,11 @@ const buildCards = [
       "Useful AI support for summarizing, organizing, drafting, searching, and making information easier to act on.",
   },
   {
+    title: "Multi-model AI & retrieval systems",
+    description:
+      "Systems that combine retrieval, structured context, and local or hosted AI models to support more grounded, flexible, and resilient workflows.",
+  },
+  {
     title: "Data and information systems",
     description:
       "Structured information flows that turn scattered notes, files, requests, and records into usable systems.",
@@ -202,6 +207,14 @@ export default function Home() {
                 controlled automation. These initiatives extend the company's
                 practical software capability into deeper platform architecture
                 where trust, context, and execution boundaries matter.
+              </p>
+              <p className="mt-5 text-base leading-7 text-slate-400">
+                Innovation Strategies works with retrieval-augmented
+                generation, local and hosted AI models, and multi-provider AI
+                workflows. This includes systems that can retrieve relevant
+                information, structure context, route tasks across different
+                models, and keep AI output inside governed application
+                boundaries.
               </p>
             </div>
             <div className="space-y-4">
