@@ -81,7 +81,7 @@ const reasons = [
   "Movement from idea to working system",
   "Practical problem solving",
   "Broad technical range",
-  "Serious architecture where needed",
+  "Systems-level architecture where needed",
   "Small-business practicality without enterprise complexity",
 ];
 
@@ -104,7 +104,7 @@ export default function Home() {
               Innovation Strategies LLC designs and builds custom software,
               automation workflows, AI-assisted tools, and digital
               infrastructure for businesses that need practical systems and
-              serious technical execution.
+              high-capability technical execution.
             </p>
           </div>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -275,9 +275,9 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
               Innovation Strategies is built around hands-on execution: turning
-              unclear operational problems into working systems, using serious
-              architecture where it matters and practical delivery where speed
-              and clarity matter most.
+              unclear operational problems into working systems, using
+              systems-level architecture where it matters and practical delivery
+              where speed and clarity matter most.
             </p>
           </div>
           <div className="space-y-3">
