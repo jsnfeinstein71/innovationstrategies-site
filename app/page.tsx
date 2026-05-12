@@ -46,17 +46,17 @@ const innovationTracks = [
   {
     title: "StarBridge",
     description:
-      "A governed AI and runtime systems initiative focused on controlled workflows, context-aware operation, and dependable human-directed use.",
+      "A governed AI/runtime systems initiative focused on keeping AI-assisted workflows under runtime control, with human approval boundaries, structured proposal handling, and safer execution paths.",
   },
   {
-    title: "FIP",
+    title: "FIP - Fractured Identity Protocol",
     description:
-      "Identity and context infrastructure research and development for managing trusted context across software and AI-assisted environments.",
+      "A proprietary identity and context infrastructure designed to separate, protect, and govern sensitive identity/context information across software systems. FIP is intended to support controlled reconstruction of bounded context only when needed, rather than exposing identity and context as one unrestricted block.",
   },
   {
-    title: "IaaS direction",
+    title: "IaaS - Identity-as-a-Service",
     description:
-      "A future direction for trusted identity and context services that can support safer, more consistent digital operations.",
+      "A service direction for delivering governed identity, context, and authorization infrastructure to applications, workflows, and AI-assisted systems. The goal is to make identity and context services available as reusable infrastructure rather than embedding fragile identity logic separately into every application.",
   },
 ];
 
@@ -191,17 +191,17 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
-                Advanced Innovation Track
+                Advanced Systems
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Deeper platform work, explained at a practical level.
+                StarBridge, FIP, and Identity-as-a-Service.
               </h2>
               <p className="mt-5 text-base leading-7 text-slate-400">
-                Innovation Strategies also develops deeper platform concepts
-                focused on governed AI workflows, identity/context
-                infrastructure, secure information handling, and
-                runtime-controlled automation. Public descriptions stay
-                high-level and focused on the business value of trusted systems.
+                Innovation Strategies also develops advanced systems for
+                governed AI workflows, identity/context infrastructure, and
+                controlled automation. These initiatives extend the company's
+                practical software capability into deeper platform architecture
+                where trust, context, and execution boundaries matter.
               </p>
             </div>
             <div className="space-y-4">
