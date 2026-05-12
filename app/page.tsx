@@ -166,14 +166,12 @@ export default function Home() {
               Built Across Platforms
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Flexible enough for the environment the work requires.
+              Built for the environment your work requires.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
-              Innovation Strategies can work across web applications,
-              Android/mobile systems, backend services, APIs, business
-              websites, local tools, cloud deployments, and custom operational
-              workflows. The goal is not to add complexity, but to build the
-              right technical shape for the problem.
+              Innovation Strategies works across web, mobile, backend services,
+              APIs, cloud deployments, local tools, and custom workflows to
+              build systems around the practical demands of the work.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
