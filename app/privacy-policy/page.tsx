@@ -28,11 +28,12 @@ export default function PrivacyPolicyPage() {
               research, development, system-status, and testing notifications
               related to StarBridge, FIP, RAGtigm, PSA, and related company
               systems. Recipients are company-owned numbers or authorized
-              internal testers who have agreed to receive these messages.
-              Message frequency varies. Message and data rates may apply. Reply
-              STOP to opt out and HELP for help. Mobile information and SMS
-              opt-in data will not be shared with third parties or affiliates
-              for marketing or promotional purposes.
+              internal testers who have provided written authorization and are
+              added manually to this internal SMS program. Message frequency
+              varies. Message and data rates may apply. Reply STOP to opt out
+              and HELP for help. Mobile information and SMS opt-in data will
+              not be shared with third parties or affiliates for marketing or
+              promotional purposes.
             </p>
           </div>
           <div className="mt-10">

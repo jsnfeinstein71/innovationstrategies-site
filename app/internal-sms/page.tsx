@@ -42,6 +42,33 @@ export default function InternalSmsPage() {
               purposes.
             </p>
           </div>
+          <div className="mt-10 rounded-lg border border-white/10 bg-white/[0.03] p-6 sm:p-7">
+            <h2 className="text-2xl font-semibold text-white">
+              Internal SMS Authorization
+            </h2>
+            <div className="mt-5 space-y-5 text-base leading-7 text-slate-300">
+              <p>
+                This SMS program is for company-owned numbers and authorized
+                internal testers only. Authorized recipients are added manually
+                after giving written permission to Innovation Strategies LLC to
+                receive SMS messages for internal system testing, development
+                workflows, operational alerts, and research notifications.
+              </p>
+              <p>
+                To authorize a number for this internal SMS program, the
+                authorized tester must provide written approval to Innovation
+                Strategies LLC confirming:
+              </p>
+              <p className="rounded-md border border-cyan-300/20 bg-cyan-300/5 p-4 text-slate-200">
+                “I agree to receive internal SMS messages from Innovation
+                Strategies LLC related to StarBridge, FIP, RAGtigm, PSA,
+                development testing, operational alerts, and system-status
+                notifications. Message frequency varies. Message and data rates
+                may apply. Reply STOP to opt out and HELP for help.”
+              </p>
+              <p>No public users are added to this SMS program.</p>
+            </div>
+          </div>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/privacy-policy"
