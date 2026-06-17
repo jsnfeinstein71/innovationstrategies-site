@@ -60,16 +60,33 @@ export default function InternalSmsPage() {
                 Strategies LLC confirming:
               </p>
               <p className="rounded-md border border-cyan-300/20 bg-cyan-300/5 p-4 text-slate-200">
-                “I agree to receive internal SMS messages from Innovation
+                "I agree to receive internal SMS messages from Innovation
                 Strategies LLC related to StarBridge, FIP, RAGtigm, PSA,
                 development testing, operational alerts, and system-status
                 notifications. Message frequency varies. Message and data rates
-                may apply. Reply STOP to opt out and HELP for help.”
+                may apply. Reply STOP to opt out and HELP for help."
+              </p>
+              <p>
+                Authorized testers may provide written authorization through
+                the{" "}
+                <Link
+                  href="/internal-sms-authorization"
+                  className="font-medium text-cyan-200 transition hover:text-white"
+                >
+                  Internal SMS Authorization form
+                </Link>
+                .
               </p>
               <p>No public users are added to this SMS program.</p>
             </div>
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
+            <Link
+              href="/internal-sms-authorization"
+              className="rounded-md border border-cyan-300/40 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/15"
+            >
+              Authorization / Opt-In Form
+            </Link>
             <Link
               href="/privacy-policy"
               className="rounded-md border border-white/20 bg-white/[0.04] px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/[0.08]"

@@ -28,7 +28,8 @@ export default function PrivacyPolicyPage() {
               research, development, system-status, and testing notifications
               related to StarBridge, FIP, RAGtigm, PSA, and related company
               systems. Recipients are company-owned numbers or authorized
-              internal testers who have provided written authorization and are
+              internal testers who have provided written authorization,
+              including through the internal SMS authorization page, and are
               added manually to this internal SMS program. Message frequency
               varies. Message and data rates may apply. Reply STOP to opt out
               and HELP for help. Mobile information and SMS opt-in data will
@@ -36,12 +37,18 @@ export default function PrivacyPolicyPage() {
               promotional purposes.
             </p>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/internal-sms"
               className="rounded-md border border-white/20 bg-white/[0.04] px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/[0.08]"
             >
               View Internal SMS Program
+            </Link>
+            <Link
+              href="/internal-sms-authorization"
+              className="rounded-md border border-white/20 bg-white/[0.04] px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/[0.08]"
+            >
+              Internal SMS Authorization
             </Link>
           </div>
         </div>
