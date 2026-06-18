@@ -21,10 +21,11 @@ export default function InternalSmsAuthorizationPage() {
           <div className="mt-8 space-y-5 text-base leading-7 text-slate-300">
             <p>
               This form is for company-owned numbers and authorized internal
-              testers only. By submitting this form and checking the SMS consent
-              box, you authorize Innovation Strategies LLC to send internal
-              operational, research, development, testing, and system-status SMS
-              messages to the phone number provided.
+              testers only. To receive SMS messages, check the optional SMS
+              consent box below. If checked, you authorize Innovation
+              Strategies LLC to send internal operational, research,
+              development, testing, and system-status SMS messages to the phone
+              number provided.
             </p>
             <p>
               Message frequency varies. Message and data rates may apply. Reply
@@ -102,18 +103,17 @@ export default function InternalSmsAuthorizationPage() {
 
             <label className="mt-6 flex gap-3 rounded-md border border-cyan-300/20 bg-cyan-300/5 p-4 text-sm leading-6 text-slate-200">
               <input
-                required
                 name="smsConsent"
                 type="checkbox"
                 className="mt-1 h-4 w-4 shrink-0 accent-cyan-300"
               />
               <span>
-                I agree to receive internal SMS messages from Innovation
-                Strategies LLC related to StarBridge, FIP, RAGtigm, PSA,
-                development testing, operational alerts, research workflows, and
-                system-status notifications. Message frequency varies. Message
-                and data rates may apply. Reply STOP to opt out and HELP for
-                help. Consent is not a condition of purchase.
+                Optional SMS consent: I agree to receive internal SMS messages
+                from Innovation Strategies LLC related to StarBridge, FIP,
+                RAGtigm, PSA, development testing, operational alerts, research
+                workflows, and system-status notifications. Message frequency
+                varies. Message and data rates may apply. Reply STOP to opt out
+                and HELP for help. Consent is not a condition of purchase.
               </span>
             </label>
 
@@ -122,7 +122,7 @@ export default function InternalSmsAuthorizationPage() {
                 type="submit"
                 className="rounded-md bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
               >
-                Submit authorization
+                Submit form
               </button>
               <Link
                 href="/privacy-policy"
