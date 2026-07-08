@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Innovation Strategies LLC | Custom Software and AI Systems",
+  title: "Innovation Strategies LLC | Governed AI Systems",
   description:
-    "Innovation Strategies LLC designs and builds custom software, automation workflows, AI-assisted tools, and digital infrastructure for real-world operations.",
+    "Innovation Strategies LLC builds governed AI systems for private documents, business workflows, citations, audit logs, structured outputs, and human approval boundaries.",
   metadataBase: new URL("https://innovationstrategies.pro"),
   openGraph: {
-    title: "Innovation Strategies LLC | Custom Software and AI Systems",
+    title: "Innovation Strategies LLC | Governed AI Systems",
     description:
-      "Custom software, automation workflows, AI-assisted tools, and digital infrastructure for real-world operations.",
+      "Private AI assistants and workflow systems with citations, audit logs, role boundaries, structured outputs, and human approval controls.",
     url: "https://innovationstrategies.pro",
     siteName: "Innovation Strategies LLC",
     type: "website",
