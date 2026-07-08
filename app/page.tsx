@@ -1,88 +1,88 @@
-const buildCards = [
+const serviceCards = [
   {
-    title: "Custom software systems",
+    title: "Private AI document assistants",
     description:
-      "Purpose-built applications and operational tools shaped around the way a business actually works.",
+      "AI systems that answer from controlled business documents, cite the source material, and refuse when the provided knowledge does not support an answer.",
   },
   {
-    title: "Web and mobile applications",
+    title: "RAG with citations",
     description:
-      "Responsive web experiences, mobile-ready interfaces, and Android-oriented tools for customer and internal use.",
+      "Retrieval workflows built around grounded answers, source labels, document boundaries, and practical review paths instead of loose chatbot responses.",
   },
   {
-    title: "Workflow automation",
+    title: "Governed workflow automation",
     description:
-      "Automated steps for intake, follow-up, routing, reminders, reporting, and repetitive back-office work.",
+      "AI-assisted intake, routing, drafting, summarizing, classification, and internal support workflows with clear approval points.",
   },
   {
-    title: "AI-assisted business tools",
+    title: "Structured AI outputs",
     description:
-      "Useful AI support for summarizing, organizing, drafting, searching, and making information easier to act on.",
+      "Model responses shaped into usable business formats such as JSON, reports, summaries, classifications, drafts, and review records.",
   },
   {
-    title: "Multi-model AI & retrieval systems",
+    title: "Audit logs and approval gates",
     description:
-      "Systems that combine retrieval, structured context, and local or hosted AI models to support more grounded, flexible, and resilient workflows.",
+      "Traceable interaction records, human handoff points, and boundaries that keep AI assistance under operational control.",
   },
   {
-    title: "Data and information systems",
+    title: "Integration architecture",
     description:
-      "Structured information flows that turn scattered notes, files, requests, and records into usable systems.",
-  },
-  {
-    title: "Platform and integration architecture",
-    description:
-      "APIs, service layers, backend logic, and integration patterns for systems that need to connect and grow.",
+      "APIs, backend services, document pipelines, and lightweight interfaces that connect the AI workflow to the way the business already works.",
   },
 ];
 
-const platformItems = [
-  "Web applications",
-  "Android and mobile systems",
-  "Backend services",
-  "APIs and integration layers",
-  "Business websites",
-  "Local tools and internal utilities",
-  "Cloud deployments",
-  "Custom operational workflows",
-];
-
-const innovationTracks = [
+const engagements = [
   {
-    title: "StarBridge",
+    title: "AI Workflow Diagnostic",
     description:
-      "A governed AI/runtime systems initiative focused on keeping AI-assisted workflows under runtime control, with human approval boundaries, structured proposal handling, and safer execution paths.",
+      "A focused review of documents, workflows, risks, and automation opportunities that produces a practical AI build plan.",
   },
   {
-    title: "FIP - Fractured Identity Protocol",
+    title: "Governed AI Prototype",
     description:
-      "A proprietary identity and context infrastructure designed to separate, protect, and govern sensitive identity/context information across software systems. FIP is intended to support controlled reconstruction of bounded context only when needed, rather than exposing identity and context as one unrestricted block.",
+      "A working private-document or workflow prototype with cited answers, refusal behavior, audit logging, and a simple user interface.",
   },
   {
-    title: "IaaS - Identity-as-a-Service",
+    title: "Production AI Workflow MVP",
     description:
-      "A service direction for delivering governed identity, context, and authorization infrastructure to applications, workflows, and AI-assisted systems. The goal is to make identity and context services available as reusable infrastructure rather than embedding fragile identity logic separately into every application.",
+      "A deployable AI workflow system with controlled document access, structured outputs, tool use, human approval gates, and documentation.",
+  },
+  {
+    title: "Monthly AI System Support",
+    description:
+      "Ongoing document updates, prompt and evaluation tuning, model/provider adjustments, usage review, and workflow improvements.",
   },
 ];
 
-const practicalSupport = [
-  "Websites and public presence",
-  "Customer intake",
-  "Internal tools",
-  "Automating repetitive work",
-  "Organizing scattered information",
-  "Connecting systems",
-  "Preparing demos and prototypes",
-  "Improving operations",
+const buyerTypes = [
+  "Law firms",
+  "Insurance offices",
+  "Medical and dental administration",
+  "Home care businesses",
+  "Real estate and property management",
+  "Compliance-heavy service businesses",
+  "Consultants and grant organizations",
+  "Document-heavy operations teams",
+];
+
+const capabilityItems = [
+  "Private document and SOP workflows",
+  "Source-grounded answers",
+  "Role-aware responses",
+  "Human approval boundaries",
+  "Controlled tool use",
+  "Interaction audit records",
+  "Intake, routing, and drafting support",
+  "Cloud, local, and hybrid deployment paths",
 ];
 
 const reasons = [
-  "Hands-on building",
-  "Movement from idea to working system",
-  "Practical problem solving",
-  "Broad technical range",
-  "Systems-level architecture where needed",
-  "Small-business practicality without enterprise complexity",
+  "Contract and project-focused AI delivery",
+  "Systems-level architecture without enterprise overhead",
+  "Governance, audit, and boundary-first design",
+  "Practical builds that connect to real operations",
+  "Clear scope, staged delivery, and maintainable handoff",
+  "Builder-led execution from diagnostic to working system",
 ];
 
 export default function Home() {
@@ -98,27 +98,26 @@ export default function Home() {
           </div>
           <div className="max-w-5xl">
             <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl">
-              Software systems built for real-world operations.
+              Governed AI systems for private documents and business workflows.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
-              Innovation Strategies LLC designs and builds custom software,
-              automation workflows, AI-assisted tools, and digital
-              infrastructure for businesses that need practical systems and
-              high-capability technical execution.
+              Innovation Strategies builds private AI assistants and workflow
+              systems with citations, audit logs, role boundaries, structured
+              outputs, controlled tool use, and human approval points.
             </p>
           </div>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
-              href="mailto:info@innovationstrategies.pro"
+              href="mailto:info@innovationstrategies.pro?subject=AI%20Workflow%20Diagnostic"
               className="inline-flex w-fit items-center justify-center rounded-md bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(103,232,249,0.24)] transition hover:bg-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-[#060a11]"
             >
-              Start a conversation
+              Request an AI Workflow Diagnostic
             </a>
             <a
-              href="mailto:info@innovationstrategies.pro"
+              href="mailto:info@innovationstrategies.pro?subject=Governed%20AI%20Prototype"
               className="text-sm font-medium text-slate-300 transition hover:text-white"
             >
-              info@innovationstrategies.pro
+              Discuss a governed AI prototype
             </a>
           </div>
         </div>
@@ -129,19 +128,38 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
+              The Problem
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Businesses want AI help, but not uncontrolled AI behavior.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-slate-400">
+              Many teams have knowledge trapped in policies, SOPs, client notes,
+              forms, records, emails, and internal procedures. Generic chatbots
+              can be useful, but business AI needs grounding, citations,
+              boundaries, approval paths, and a way to know what happened.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative border-b border-white/10 bg-[#060a11] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
               What We Build
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Software capability across platforms and operational needs.
+              Private AI systems built around trust, workflow, and control.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
-              The work spans practical business systems, custom applications,
-              automation, AI-assisted workflows, information architecture, and
-              the integration layers that make tools work together.
+              The work focuses on contract and project builds for businesses
+              that need AI to work with internal knowledge without losing
+              operational control.
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {buildCards.map((item) => (
+            {serviceCards.map((item) => (
               <article
                 key={item.title}
                 className="rounded-lg border border-white/10 bg-white/[0.045] p-5 shadow-2xl shadow-black/20 backdrop-blur"
@@ -159,23 +177,57 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-[#0a101a] py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
+              Starter Engagements
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Start with a scoped diagnostic, prototype, or MVP.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-slate-400">
+              Every engagement starts with a clear business workflow, defined
+              boundaries, and a practical delivery path. The goal is useful AI
+              that can be tested, reviewed, and maintained.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {engagements.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[0.035] to-blue-500/10 p-5 shadow-2xl shadow-cyan-950/20"
+              >
+                <h3 className="text-lg font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#060a11] py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
-              Built Across Platforms
+              Who It Helps
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Built for the environment your work requires.
+              Built for document-heavy businesses and workflow-heavy teams.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
-              Innovation Strategies works across web, mobile, backend services,
-              APIs, cloud deployments, local tools, and custom workflows to
-              build systems around the practical demands of the work.
+              The best fit is a business with repeated internal questions,
+              scattered knowledge, manual review steps, private documents, and
+              real risk if AI produces an unsupported answer or takes the wrong
+              action.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {platformItems.map((item) => (
+            {buyerTypes.map((item) => (
               <div
                 key={item}
                 className="flex items-center gap-3 rounded-md border border-white/10 bg-white/[0.04] p-4"
@@ -194,88 +246,51 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
-                Advanced Systems
+                Governance-First Architecture
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                StarBridge, FIP, and Identity-as-a-Service.
+                Not generic chatbot work.
               </h2>
               <p className="mt-5 text-base leading-7 text-slate-400">
-                Innovation Strategies also develops advanced systems for
-                governed AI workflows, identity/context infrastructure, and
-                controlled automation. These initiatives extend the company's
-                practical software capability into deeper platform architecture
-                where trust, context, and execution boundaries matter.
+                Innovation Strategies focuses on the missing layer between a
+                model and a real business process: private knowledge control,
+                retrieval boundaries, citations, audit trails, structured
+                outputs, and human approval before consequential action.
               </p>
               <p className="mt-5 text-base leading-7 text-slate-400">
-                Innovation Strategies works with retrieval-augmented
-                generation, local and hosted AI models, and multi-provider AI
-                workflows. This includes systems that can retrieve relevant
-                information, structure context, route tasks across different
-                models, and keep AI output inside governed application
-                boundaries.
+                Advanced internal research informs the approach, but public
+                client work is scoped around business outcomes, practical
+                implementation, and clear operational safeguards.
               </p>
             </div>
-            <div className="space-y-4">
-              {innovationTracks.map((track) => (
-                <article
-                  key={track.title}
-                  className="rounded-lg border border-cyan-300/20 bg-gradient-to-br from-cyan-300/10 via-white/[0.035] to-blue-500/10 p-5 shadow-2xl shadow-cyan-950/20"
+            <div className="grid gap-3 sm:grid-cols-2">
+              {capabilityItems.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-md border border-white/10 bg-white/[0.04] p-4 font-medium text-slate-100"
                 >
-                  <h3 className="text-lg font-semibold text-white">
-                    {track.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">
-                    {track.description}
-                  </p>
-                </article>
+                  {item}
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#060a11] py-16 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
-              Practical Business Support
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Advanced capability applied to everyday operating needs.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-slate-400">
-              The same technical range can support the practical work that
-              keeps a business moving, from public presence and intake flows to
-              internal tools, prototypes, and connected systems.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {practicalSupport.map((item) => (
-              <div
-                key={item}
-                className="rounded-md border border-white/10 bg-white/[0.04] p-4 font-medium text-slate-100"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-white/10 bg-[#0a101a] py-16 sm:py-20">
+      <section className="border-y border-white/10 bg-[#060a11] py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
               Why Innovation Strategies
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Builder-oriented technical work without enterprise overhead.
+              Builder-led AI systems without enterprise overhead.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
               Innovation Strategies is built around hands-on execution: turning
               unclear operational problems into working systems, using
               systems-level architecture where it matters and practical delivery
-              where speed and clarity matter most.
+              where speed, scope, and clarity matter most.
             </p>
           </div>
           <div className="space-y-3">
@@ -294,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative bg-[#060a11] py-16">
+      <section className="relative bg-[#0a101a] py-16">
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
         <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
           <div className="rounded-lg border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.025] p-6 shadow-2xl shadow-black/30 sm:p-8">
@@ -304,16 +319,17 @@ export default function Home() {
                   Contact
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-                  Start a conversation about the system you need.
+                  Start with a paid AI workflow diagnostic.
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-7 text-slate-400">
-                  For custom software, automation, AI-assisted workflows,
-                  digital infrastructure, or practical operations support,
-                  contact Innovation Strategies LLC.
+                  If your business has private documents, repetitive internal
+                  questions, manual intake, review steps, or workflow bottlenecks,
+                  contact Innovation Strategies LLC to discuss a scoped AI
+                  diagnostic or governed prototype.
                 </p>
               </div>
               <a
-                href="mailto:info@innovationstrategies.pro"
+                href="mailto:info@innovationstrategies.pro?subject=AI%20Workflow%20Diagnostic"
                 className="text-lg font-semibold text-cyan-200 transition hover:text-white"
               >
                 info@innovationstrategies.pro
