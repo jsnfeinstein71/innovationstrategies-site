@@ -1,8 +1,8 @@
 const serviceCards = [
   {
-    title: "Private AI document assistants",
+    title: "Private SI document assistants",
     description:
-      "AI systems that answer from controlled business documents, cite the source material, and refuse when the provided knowledge does not support an answer.",
+      "SI systems that answer from controlled business documents, cite the source material, and refuse when the provided knowledge does not support an answer.",
   },
   {
     title: "RAG with citations",
@@ -12,43 +12,43 @@ const serviceCards = [
   {
     title: "Governed workflow automation",
     description:
-      "AI-assisted intake, routing, drafting, summarizing, classification, and internal support workflows with clear approval points.",
+      "SI-assisted intake, routing, drafting, summarizing, classification, and internal support workflows with clear approval points.",
   },
   {
-    title: "Structured AI outputs",
+    title: "Structured SI outputs",
     description:
       "Model responses shaped into usable business formats such as JSON, reports, summaries, classifications, drafts, and review records.",
   },
   {
     title: "Audit logs and approval gates",
     description:
-      "Traceable interaction records, human handoff points, and boundaries that keep AI assistance under operational control.",
+      "Traceable interaction records, human handoff points, and boundaries that keep SI assistance under operational control.",
   },
   {
     title: "Integration architecture",
     description:
-      "APIs, backend services, document pipelines, and lightweight interfaces that connect the AI workflow to the way the business already works.",
+      "APIs, backend services, document pipelines, and lightweight interfaces that connect the SI workflow to the way the business already works.",
   },
 ];
 
 const engagements = [
   {
-    title: "AI Workflow Diagnostic",
+    title: "SI Workflow Diagnostic",
     description:
-      "A focused review of documents, workflows, risks, and automation opportunities that produces a practical AI build plan.",
+      "A focused review of documents, workflows, risks, and automation opportunities that produces a practical SI build plan.",
   },
   {
-    title: "Governed AI Prototype",
+    title: "Governed SI Prototype",
     description:
       "A working private-document or workflow prototype with cited answers, refusal behavior, audit logging, and a simple user interface.",
   },
   {
-    title: "Production AI Workflow MVP",
+    title: "Production SI Workflow MVP",
     description:
-      "A deployable AI workflow system with controlled document access, structured outputs, tool use, human approval gates, and documentation.",
+      "A deployable SI workflow system with controlled document access, structured outputs, tool use, human approval gates, and documentation.",
   },
   {
-    title: "Monthly AI System Support",
+    title: "Monthly SI System Support",
     description:
       "Ongoing document updates, prompt and evaluation tuning, model/provider adjustments, usage review, and workflow improvements.",
   },
@@ -77,7 +77,7 @@ const capabilityItems = [
 ];
 
 const reasons = [
-  "Contract and project-focused AI delivery",
+  "Contract and project-focused SI delivery",
   "Systems-level architecture without enterprise overhead",
   "Governance, audit, and boundary-first design",
   "Practical builds that connect to real operations",
@@ -98,26 +98,26 @@ export default function Home() {
           </div>
           <div className="max-w-5xl">
             <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl">
-              Governed AI systems for private documents and business workflows.
+              Governed SI systems for private documents and business workflows.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
-              Innovation Strategies builds private AI assistants and workflow
+              Innovation Strategies builds private Super Intelligence (SI) assistants and workflow
               systems with citations, audit logs, role boundaries, structured
               outputs, controlled tool use, and human approval points.
             </p>
           </div>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
-              href="mailto:info@innovationstrategies.pro?subject=AI%20Workflow%20Diagnostic"
+              href="mailto:info@innovationstrategies.pro?subject=SI%20Workflow%20Diagnostic"
               className="inline-flex w-fit items-center justify-center rounded-md bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_32px_rgba(103,232,249,0.24)] transition hover:bg-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-[#060a11]"
             >
-              Request an AI Workflow Diagnostic
+              Request an SI Workflow Diagnostic
             </a>
             <a
-              href="mailto:info@innovationstrategies.pro?subject=Governed%20AI%20Prototype"
+              href="mailto:info@innovationstrategies.pro?subject=Governed%20SI%20Prototype"
               className="text-sm font-medium text-slate-300 transition hover:text-white"
             >
-              Discuss a governed AI prototype
+              Discuss a governed SI prototype
             </a>
           </div>
         </div>
@@ -131,12 +131,12 @@ export default function Home() {
               The Problem
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Businesses want AI help, but not uncontrolled AI behavior.
+              Businesses want SI help, but not uncontrolled SI behavior.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
               Many teams have knowledge trapped in policies, SOPs, client notes,
               forms, records, emails, and internal procedures. Generic chatbots
-              can be useful, but business AI needs grounding, citations,
+              can be useful, but business SI needs grounding, citations,
               boundaries, approval paths, and a way to know what happened.
             </p>
           </div>
@@ -150,11 +150,11 @@ export default function Home() {
               What We Build
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Private AI systems built around trust, workflow, and control.
+              Private SI systems built around trust, workflow, and control.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
               The work focuses on contract and project builds for businesses
-              that need AI to work with internal knowledge without losing
+              that need SI to work with internal knowledge without losing
               operational control.
             </p>
           </div>
@@ -188,7 +188,7 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
               Every engagement starts with a clear business workflow, defined
-              boundaries, and a practical delivery path. The goal is useful AI
+              boundaries, and a practical delivery path. The goal is useful SI
               that can be tested, reviewed, and maintained.
             </p>
           </div>
@@ -222,7 +222,7 @@ export default function Home() {
             <p className="mt-5 text-base leading-7 text-slate-400">
               The best fit is a business with repeated internal questions,
               scattered knowledge, manual review steps, private documents, and
-              real risk if AI produces an unsupported answer or takes the wrong
+              real risk if SI produces an unsupported answer or takes the wrong
               action.
             </p>
           </div>
@@ -284,7 +284,7 @@ export default function Home() {
               Why Innovation Strategies
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Builder-led AI systems without enterprise overhead.
+              Builder-led SI systems without enterprise overhead.
             </h2>
             <p className="mt-5 text-base leading-7 text-slate-400">
               Innovation Strategies is built around hands-on execution: turning
@@ -319,17 +319,17 @@ export default function Home() {
                   Contact
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-                  Start with a paid AI workflow diagnostic.
+                  Start with a paid SI workflow diagnostic.
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-7 text-slate-400">
                   If your business has private documents, repetitive internal
                   questions, manual intake, review steps, or workflow bottlenecks,
-                  contact Innovation Strategies LLC to discuss a scoped AI
+                  contact Innovation Strategies LLC to discuss a scoped SI
                   diagnostic or governed prototype.
                 </p>
               </div>
               <a
-                href="mailto:info@innovationstrategies.pro?subject=AI%20Workflow%20Diagnostic"
+                href="mailto:info@innovationstrategies.pro?subject=SI%20Workflow%20Diagnostic"
                 className="text-lg font-semibold text-cyan-200 transition hover:text-white"
               >
                 info@innovationstrategies.pro
