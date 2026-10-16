@@ -73,6 +73,19 @@ async function expectReply(request, message) {
     '<?xml version="1.0" encoding="UTF-8"?><Response><Message>' + message + "</Message></Response>");
 }
 
+test("only the verified owner's ordinary acknowledgment omits the footer", async () => {
+  const From = "+12517860538";
+  await expectReply(signedRequest(fields({ From })), "Innovation Strategies: Message received.");
+  await expectReply(signedRequest(fields({ From: "+12517860539" })), ACK);
+  await expectReply(signedRequest(fields({ From, Body: "STOP" })), STOP);
+  await expectReply(signedRequest(fields({ From, Body: "HELP" })), HELP);
+  for (const OptOutType of ["STOP", "HELP", "START"]) {
+    const response = await POST(signedRequest(fields({ From, OptOutType })));
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), EMPTY_XML);
+  }
+});
+
 test("normal messages return the exact acknowledgment and redact logs", async () => {
   await expectReply(signedRequest(), ACK);
   assert.deepEqual(logs, [["[internal-sms/inbound]", {

@@ -10,6 +10,8 @@ const MAX_BODY_BYTES = 64 * 1024;
 const STOP_KEYWORDS = new Set([
   "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END", "QUIT", "REVOKE", "OPTOUT",
 ]);
+const OWNER_NUMBER = "+12517860538";
+const OWNER_ACKNOWLEDGMENT = "Innovation Strategies: Message received.";
 const ACKNOWLEDGMENT =
   "Innovation Strategies: Message received. Reply STOP to opt out or HELP for help.";
 const HELP_REPLY =
@@ -157,5 +159,5 @@ export async function POST(request: Request) {
   if (command === "STOP") return twiml(STOP_REPLY);
   if (command === "HELP") return twiml(HELP_REPLY);
   await scheduleNotification(params);
-  return twiml(ACKNOWLEDGMENT);
+  return twiml(From === OWNER_NUMBER ? OWNER_ACKNOWLEDGMENT : ACKNOWLEDGMENT);
 }
