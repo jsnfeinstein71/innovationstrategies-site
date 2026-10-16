@@ -1,4 +1,5 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
+import { scheduleNotification } from "./email-notification.mjs";
 
 export const runtime = "nodejs";
 
@@ -155,5 +156,6 @@ export async function POST(request: Request) {
   if (handledByTwilio) return twiml();
   if (command === "STOP") return twiml(STOP_REPLY);
   if (command === "HELP") return twiml(HELP_REPLY);
+  await scheduleNotification(params);
   return twiml(ACKNOWLEDGMENT);
 }
