@@ -11,12 +11,29 @@ test('fixed email exposes only marker and validated SID, never SMS content or ph
   for(const value of [fields.Body,fields.From,fields.To,fields.AccountSid])assert.ok(!JSON.stringify(mail).includes(value));
   assert.deepEqual(mailFor(fields.MessageSid),mail);assert.throws(()=>mailFor('x\r\nBcc: attacker'));
 });
-test('non-owner and every opt-out/help/start form cannot notify',()=>{
+test('unlisted sender and every opt-out/help/start form cannot notify',()=>{
   for(const Body of ['STOP','STOPALL','UNSUBSCRIBE','CANCEL','END','QUIT','REVOKE','OPTOUT','HELP','INFO','START'])assert.equal(eligible({...fields,Body:' '+Body.toLowerCase()+' '}),false);
   for(const OptOutType of ['STOP','HELP','START'])assert.equal(eligible({...fields,OptOutType}),false);
   assert.equal(eligible({...fields,From:'+16155550123'}),false);
   assert.equal(eligible({...fields,To:'+18555550123'}),false);
 });
+test('both allowed senders notify only when the Twilio record matches the signed sender',async()=>{
+  const senders=['+12517860538','+12512344861'];
+  for(const From of senders){
+    const incoming={...fields,From};
+    assert.equal(eligible(incoming),true);
+    for(const from of senders){
+      const mails=[];
+      const notify=createNotifier({now:()=>time,readMessage:async()=>({...record,from}),sendMail:async mail=>mails.push(mail)});
+      assert.equal(await notify(incoming),from===From?'accepted':'skipped');
+      assert.equal(mails.length,from===From?1:0);
+      if(mails.length)assert.deepEqual(mails[0],mailFor(fields.MessageSid));
+    }
+    for(const Body of ['STOP','STOPALL','UNSUBSCRIBE','CANCEL','END','QUIT','REVOKE','OPTOUT','HELP','INFO','START'])assert.equal(eligible({...incoming,Body}),false);
+    for(const OptOutType of ['STOP','HELP','START'])assert.equal(eligible({...incoming,OptOutType}),false);
+  }
+});
+
 test('concurrent replays cause one warm-instance attempt',async()=>{
   let reads=0,sends=0;const notify=createNotifier({now:()=>time,readMessage:async()=>{reads++;return record;},sendMail:async()=>{sends++;}});
   const result=await Promise.all([notify(fields),notify(fields),notify(fields)]);

@@ -3,12 +3,13 @@ import {connect as tlsConnect} from 'node:tls';
 export const SENDER = 'carlacrews1970@gmail.com';
 export const RECIPIENT = 'jsnfeinstein71@gmail.com';
 export const MARKER = 'CARLA_SMS_WAKE_V1';
-const OWNER = '+12517860538', DESTINATION = '+12513335587';
+const ALLOWED_SENDERS = new Set(['+12517860538', '+12512344861']);
+const DESTINATION = '+12513335587';
 const COMMANDS = new Set(['STOP','STOPALL','UNSUBSCRIBE','CANCEL','END','QUIT','REVOKE','OPTOUT','HELP','INFO','START']);
 const SID = /^(SM|MM)[a-fA-F0-9]{32}$/;
 
 export function eligible(fields) {
-  return fields.From === OWNER && fields.To === DESTINATION && SID.test(fields.MessageSid ?? '') &&
+  return ALLOWED_SENDERS.has(fields.From) && fields.To === DESTINATION && SID.test(fields.MessageSid ?? '') &&
     !COMMANDS.has((fields.Body ?? '').trim().toUpperCase()) &&
     !['STOP','HELP','START'].includes((fields.OptOutType ?? '').trim().toUpperCase());
 }
@@ -36,7 +37,7 @@ export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{}}
     try {
       const record=await readMessage(sid);
       const created=Date.parse(record?.date_created);
-      if(record?.sid!==sid || record.account_sid!==fields.AccountSid || record.from!==OWNER ||
+      if(record?.sid!==sid || record.account_sid!==fields.AccountSid || record.from!==fields.From ||
         record.to!==DESTINATION || record.direction!=='inbound' || !Number.isFinite(created) ||
         created<now()-600000 || created>now()+30000 || record.body!==fields.Body ||
         String(record.num_media)!==fields.NumMedia) {report('verification_failed');return 'skipped';}

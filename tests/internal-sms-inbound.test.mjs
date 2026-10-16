@@ -77,6 +77,7 @@ test("only the verified owner's ordinary acknowledgment omits the footer", async
   const From = "+12517860538";
   await expectReply(signedRequest(fields({ From })), "Innovation Strategies: Message received.");
   await expectReply(signedRequest(fields({ From: "+12517860539" })), ACK);
+  await expectReply(signedRequest(fields({ From: "+12512344861" })), ACK);
   await expectReply(signedRequest(fields({ From, Body: "STOP" })), STOP);
   await expectReply(signedRequest(fields({ From, Body: "HELP" })), HELP);
   for (const OptOutType of ["STOP", "HELP", "START"]) {
