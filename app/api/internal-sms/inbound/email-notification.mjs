@@ -8,8 +8,13 @@ const DESTINATION = '+12513335587';
 const COMMANDS = new Set(['STOP','STOPALL','UNSUBSCRIBE','CANCEL','END','QUIT','REVOKE','OPTOUT','HELP','INFO','START']);
 const SID = /^(SM|MM)[a-fA-F0-9]{32}$/;
 
-export function eligible(fields) {
-  return ALLOWED_SENDERS.has(fields.From) && fields.To === DESTINATION && SID.test(fields.MessageSid ?? '') &&
+// Exact-number admission only. The default-off switch is not evidence of consent.
+export function eligible(fields, hollyEnabled = false, hollyNumber) {
+  const holly = hollyEnabled === true && typeof hollyNumber === 'string' &&
+    /^\+[1-9]\d{1,14}$/.test(hollyNumber) && hollyNumber !== DESTINATION &&
+    !ALLOWED_SENDERS.has(hollyNumber) && fields.From === hollyNumber && fields.NumMedia === '0';
+  return (ALLOWED_SENDERS.has(fields.From) || holly) &&
+    fields.To === DESTINATION && SID.test(fields.MessageSid ?? '') &&
     !COMMANDS.has((fields.Body ?? '').trim().toUpperCase()) &&
     !['STOP','HELP','START'].includes((fields.OptOutType ?? '').trim().toUpperCase());
 }
@@ -25,10 +30,10 @@ export function mailFor(sid) {
 
 // In-memory suppression is best effort across warm requests, NOT cross-instance
 // exactly-once delivery. Keep failed/uncertain attempts to avoid automatic resend.
-export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{}}) {
+export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{},hollyEnabled=()=>false,hollyNumber=()=>undefined}) {
   const attempted = new Map();
   return async fields => {
-    if (!eligible(fields)) return 'ignored';
+    if (!eligible(fields,hollyEnabled(),hollyNumber())) return 'ignored';
     const sid=fields.MessageSid, time=now();
     for(const [key,at] of attempted) if(time-at>86400000) attempted.delete(key);
     if(attempted.has(sid)) return 'duplicate';
@@ -41,6 +46,8 @@ export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{}}
         record.to!==DESTINATION || record.direction!=='inbound' || !Number.isFinite(created) ||
         created<now()-600000 || created>now()+30000 || record.body!==fields.Body ||
         String(record.num_media)!==fields.NumMedia) {report('verification_failed');return 'skipped';}
+      // Recheck the admission switch after the asynchronous provider verification.
+      if (!eligible(fields,hollyEnabled(),hollyNumber())) return 'ignored';
       await sendMail(mailFor(sid));
       report('accepted');return 'accepted'; // SMTP acceptance, not inbox delivery.
     } catch {report('unconfirmed');return 'unconfirmed';} // Never log provider errors.
@@ -93,13 +100,15 @@ async function sendGmail(mail) {
   const {default:nodemailer}=await import('nodemailer');
   await deliverMail(mail,{nodemailer,password:process.env.CARLA_GMAIL_APP_PASSWORD});
 }
-const notify=createNotifier({readMessage:readTwilioMessage,sendMail:sendGmail,
+const hollyEnabled=()=>process.env.CARLA_SMS_HOLLY_ENABLED==='true';
+const hollyNumber=()=>process.env.CARLA_SMS_HOLLY_NUMBER;
+const notify=createNotifier({readMessage:readTwilioMessage,sendMail:sendGmail,hollyEnabled,hollyNumber,
   report:status=>console.info('[internal-sms/email]',{status})});
 
 // Call ONLY after original webhook signature/account/field validation.
 // Next after() keeps background work attached to the completed HTTP response.
 export async function scheduleNotification(fields) {
-  if(process.env.CARLA_SMS_EMAIL_ENABLED!=='true'||!eligible(fields))return;
+  if(process.env.CARLA_SMS_EMAIL_ENABLED!=='true'||!eligible(fields,hollyEnabled(),hollyNumber()))return;
   if(!process.env.CARLA_GMAIL_APP_PASSWORD){console.info('[internal-sms/email]',{status:'not_configured'});return;}
   try {
     const {after}=await import('next/server.js');

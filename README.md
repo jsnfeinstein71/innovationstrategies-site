@@ -84,6 +84,26 @@ To use the exact custom HELP and STOP text for those events, configure the
 corresponding confirmations in the Messaging Service's Advanced Opt-Out settings.
 Adding this route does not change those settings.
 
+### Holly text-only admission
+
+The notification allowlist admits exactly the verified number supplied in the
+server-only `CARLA_SMS_HOLLY_NUMBER` variable when `CARLA_SMS_HOLLY_ENABLED` is
+exactly `true`. Keep the phone number out of this public repository. Missing,
+malformed, owner-number or cArla-number configuration cannot add a new sender.
+Jason and Jeanne retain their existing behavior. The route can be activated
+before the introduction, but routing is not evidence of ongoing-contact consent
+and must never clear a provider block or controller hold. The sole controller
+owns consent, privacy, financial exclusions, reservations and outbound reconciliation.
+An invitation remains held until the reply path is verified and the parents have
+told Holly to expect it; no invitation or test SMS is sent by this deployment.
+
+The existing global email switch, fixed Gmail sender/recipient, SID-only email,
+webhook URL/signature/account/recipient checks and acknowledgments are unchanged.
+Holly receives the generic acknowledgment already used for other non-owner
+numbers; this does not imply that AI handling has been enabled. No additional
+media-processing permission is granted. Holly's messages with media do not
+generate a notification, and the controller must reject media before retrieval.
+
 Run the focused webhook tests with Node.js 22.18+ or 24+:
 
 ```bash

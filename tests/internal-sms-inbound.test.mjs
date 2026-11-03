@@ -104,6 +104,19 @@ test("normal messages return the exact acknowledgment and redact logs", async ()
   }
 });
 
+test("Holly keeps the generic acknowledgment and unchanged signature/control checks", async () => {
+  const From = "+15555550123";
+  await expectReply(signedRequest(fields({ From })), ACK);
+  await expectReply(signedRequest(fields({ From, Body: "STOP" })), STOP);
+  await expectReply(signedRequest(fields({ From, Body: "HELP" })), HELP);
+  const managed = await POST(signedRequest(fields({ From, OptOutType: "STOP" })));
+  assert.equal(await managed.text(), EMPTY_XML);
+  const tampered = signedRequest(fields({ From }), {
+    body: new URLSearchParams(fields({ From: "+15555550124" })).toString(),
+  });
+  assert.equal((await POST(tampered)).status, 403);
+});
+
 test("accepts a fixed signature generated independently by Twilio SDK 5.13.1", async () => {
   const publicUrl = "https://innovationstrategies.pro/api/internal-sms/inbound";
   process.env.TWILIO_INTERNAL_SMS_WEBHOOK_URL = publicUrl;
