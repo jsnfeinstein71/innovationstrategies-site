@@ -9,11 +9,15 @@ const COMMANDS = new Set(['STOP','STOPALL','UNSUBSCRIBE','CANCEL','END','QUIT','
 const SID = /^(SM|MM)[a-fA-F0-9]{32}$/;
 
 // Exact-number admission only. The default-off switch is not evidence of consent.
-export function eligible(fields, hollyEnabled = false, hollyNumber) {
+export function eligible(fields, hollyEnabled = false, hollyNumber, scottEnabled = false, scottNumber) {
   const holly = hollyEnabled === true && typeof hollyNumber === 'string' &&
     /^\+[1-9]\d{1,14}$/.test(hollyNumber) && hollyNumber !== DESTINATION &&
     !ALLOWED_SENDERS.has(hollyNumber) && fields.From === hollyNumber && fields.NumMedia === '0';
-  return (ALLOWED_SENDERS.has(fields.From) || holly) &&
+  const scott = scottEnabled === true && typeof scottNumber === 'string' &&
+    /^\+[1-9]\d{1,14}$/.test(scottNumber) && scottNumber !== DESTINATION &&
+    !ALLOWED_SENDERS.has(scottNumber) && scottNumber !== hollyNumber &&
+    fields.From === scottNumber && fields.NumMedia === '0';
+  return (ALLOWED_SENDERS.has(fields.From) || holly || scott) &&
     fields.To === DESTINATION && SID.test(fields.MessageSid ?? '') &&
     !COMMANDS.has((fields.Body ?? '').trim().toUpperCase()) &&
     !['STOP','HELP','START'].includes((fields.OptOutType ?? '').trim().toUpperCase());
@@ -30,10 +34,10 @@ export function mailFor(sid) {
 
 // In-memory suppression is best effort across warm requests, NOT cross-instance
 // exactly-once delivery. Keep failed/uncertain attempts to avoid automatic resend.
-export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{},hollyEnabled=()=>false,hollyNumber=()=>undefined}) {
+export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{},hollyEnabled=()=>false,hollyNumber=()=>undefined,scottEnabled=()=>false,scottNumber=()=>undefined}) {
   const attempted = new Map();
   return async fields => {
-    if (!eligible(fields,hollyEnabled(),hollyNumber())) return 'ignored';
+    if (!eligible(fields,hollyEnabled(),hollyNumber(),scottEnabled(),scottNumber())) return 'ignored';
     const sid=fields.MessageSid, time=now();
     for(const [key,at] of attempted) if(time-at>86400000) attempted.delete(key);
     if(attempted.has(sid)) return 'duplicate';
@@ -47,7 +51,7 @@ export function createNotifier({readMessage,sendMail,now=Date.now,report=()=>{},
         created<now()-600000 || created>now()+30000 || record.body!==fields.Body ||
         String(record.num_media)!==fields.NumMedia) {report('verification_failed');return 'skipped';}
       // Recheck the admission switch after the asynchronous provider verification.
-      if (!eligible(fields,hollyEnabled(),hollyNumber())) return 'ignored';
+      if (!eligible(fields,hollyEnabled(),hollyNumber(),scottEnabled(),scottNumber())) return 'ignored';
       await sendMail(mailFor(sid));
       report('accepted');return 'accepted'; // SMTP acceptance, not inbox delivery.
     } catch {report('unconfirmed');return 'unconfirmed';} // Never log provider errors.
@@ -102,13 +106,15 @@ async function sendGmail(mail) {
 }
 const hollyEnabled=()=>process.env.CARLA_SMS_HOLLY_ENABLED==='true';
 const hollyNumber=()=>process.env.CARLA_SMS_HOLLY_NUMBER;
-const notify=createNotifier({readMessage:readTwilioMessage,sendMail:sendGmail,hollyEnabled,hollyNumber,
+const scottEnabled=()=>process.env.CARLA_SMS_SCOTT_ENABLED==='true';
+const scottNumber=()=>process.env.CARLA_SMS_SCOTT_NUMBER;
+const notify=createNotifier({readMessage:readTwilioMessage,sendMail:sendGmail,hollyEnabled,hollyNumber,scottEnabled,scottNumber,
   report:status=>console.info('[internal-sms/email]',{status})});
 
 // Call ONLY after original webhook signature/account/field validation.
 // Next after() keeps background work attached to the completed HTTP response.
 export async function scheduleNotification(fields) {
-  if(process.env.CARLA_SMS_EMAIL_ENABLED!=='true'||!eligible(fields,hollyEnabled(),hollyNumber()))return;
+  if(process.env.CARLA_SMS_EMAIL_ENABLED!=='true'||!eligible(fields,hollyEnabled(),hollyNumber(),scottEnabled(),scottNumber()))return;
   if(!process.env.CARLA_GMAIL_APP_PASSWORD){console.info('[internal-sms/email]',{status:'not_configured'});return;}
   try {
     const {after}=await import('next/server.js');

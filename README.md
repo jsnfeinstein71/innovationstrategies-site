@@ -104,6 +104,25 @@ numbers; this does not imply that AI handling has been enabled. No additional
 media-processing permission is granted. Holly's messages with media do not
 generate a notification, and the controller must reject media before retrieval.
 
+### Scott text-only admission
+
+Scott has an independent server-only number, `CARLA_SMS_SCOTT_NUMBER`, and
+default-off switch, `CARLA_SMS_SCOTT_ENABLED`. Only the exact string `true`
+enables his notification route. Store the approved number in private deployment
+configuration, never in this public repository. The number must be valid E.164,
+must not match cArla, Jason, Jeanne, or Holly's configured number, and must match
+the verified provider sender exactly. Missing or invalid settings admit nobody
+new. Scott's switch does not change Holly's switch or the existing owner routes.
+
+Only zero-media messages qualify. Existing STOP/HELP/START exclusions, original
+provider ownership checks, and the admission recheck after provider verification
+also apply to Scott. The fixed SID-only email and generic acknowledgment remain
+unchanged. This enables routing, not unrestricted disclosure or access to email,
+contacts, financial records, media, or another person's private information.
+The sole controller owns sender-bound consent, approved context, current opt-outs,
+durable handling and one-attempt reply admission. Deployment itself sends no
+introduction, test message, or health information.
+
 Run the focused webhook tests with Node.js 22.18+ or 24+:
 
 ```bash
